@@ -36,7 +36,7 @@ class GithubPopularRepos extends Component {
       method: 'GET',
     }
     this.setState({apiState: 'loading'})
-    const response = await fetch(apiUrl, options)
+    const response = await fetch(apiUrl)
     // console.log(activeId)
     console.log(response)
     if (response.ok === true) {

@@ -9,9 +9,9 @@ function RepositoryItem(props) {
         <img
           src={eachRepo.avatar_url}
           className="css-avatarimage-itself"
-          alt="avatar"
+          alt={eachRepo.name}
         />
-        <p>{eachRepo.name}</p>
+        <h1>{eachRepo.name}</h1>
         <div className="css-stars-container">
           <img
             src="https://assets.ccbp.in/frontend/react-js/stars-count-img.png"
