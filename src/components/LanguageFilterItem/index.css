@@ -1,0 +1,24 @@
+/* Write your CSS here */
+.css-filtered-ul-container {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+}
+
+.css-filtered-button-itself {
+  background-color: transparent;
+  border-radius: 15px;
+  padding: 10px;
+  border-width: 1px;
+}
+
+.css-filtered-button-itself:hover {
+  cursor: pointer;
+}
+
+.css-active-filtered-option {
+  color: white;
+  background-color: blueviolet;
+  font-weight: bold;
+}
