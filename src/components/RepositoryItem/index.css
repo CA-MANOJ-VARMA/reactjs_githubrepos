@@ -1,1 +1,33 @@
 /* Write your CSS here */
+.css-avatarimage-itself {
+  width: 150px;
+}
+
+.css-ul-repo-container {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.css-stars-image-itself {
+  width: 30px;
+  height: 30px;
+}
+
+.css-stars-container {
+  display: flex;
+  align-items: center;
+}
+
+.css-repo-container {
+  border-style: solid;
+  border-radius: 11px;
+  border-width: 1px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

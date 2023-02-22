@@ -1,56 +1,44 @@
 // Write your code here
-import {Component} from 'react'
-import Loader from 'react-loader-spinner'
 import './index.css'
 
-class RepositoryItem extends Component {
-  state = {apiState: 'loading'}
-
-  componentDidMount() {
-    this.callingApiFunction()
-  }
-
-  callingApiFunction = async () => {
-    const {activeId} = this.props
-    console.log('repository')
-    console.log(activeId)
-    const apiUrl = `https://apis.ccbp.in/popular-repos?language=${activeId}`
-    const options = {
-      method: 'GET',
-    }
-    const response = await fetch(apiUrl, options)
-    // console.log(activeId)
-    if (response.ok === true) {
-      const fetchedData = await response.json()
-      const popularRepos = fetchedData.popular_repos
-      console.log(popularRepos)
-      this.setState({apiState: 'success'})
-    }
-  }
-
-  loaderFunction = () => (
-    <div data-testid="loader">
-      <Loader type="ThreeDots" color="#0284c7" height={80} width={80} />
-    </div>
+function RepositoryItem(props) {
+  const {eachRepo} = props
+  return (
+    <>
+      <div className="css-repo-container">
+        <img
+          src={eachRepo.avatar_url}
+          className="css-avatarimage-itself"
+          alt="avatar"
+        />
+        <p>{eachRepo.name}</p>
+        <div className="css-stars-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/stars-count-img.png"
+            alt="stars"
+            className="css-stars-image-itself"
+          />
+          <p>{eachRepo.stars_count}</p>
+        </div>
+        <div className="css-stars-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/forks-count-img.png"
+            alt="forks"
+            className="css-stars-image-itself"
+          />
+          <p>{eachRepo.forks_count}</p>
+        </div>
+        <div className="css-stars-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/issues-count-img.png"
+            alt="open issues"
+            className="css-stars-image-itself"
+          />
+          <p>{eachRepo.issues_count}</p>
+        </div>
+      </div>
+    </>
   )
-
-  repositoryFunction = () => {
-    const {apiState} = this.state
-    console.log(apiState)
-    switch (apiState) {
-      case 'loading':
-        return this.loaderFunction
-      case 'success':
-        return this.callingApiFunction
-      default:
-        return null
-    }
-  }
-
-  render() {
-    this.repositoryFunction()
-    return <div className="css-repository-container">hello</div>
-  }
 }
 
 export default RepositoryItem
